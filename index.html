@@ -13,24 +13,27 @@
     <form>
         <div class="input-container">
             <div class="input-box">
-                <label>Email</label>
-                <input type="email">
+                <label for="email">
+                    <span>Email</span>
+                    <input id="email" type="email" name="mail" minlength="8">
+                    <span class="error-email" id="error-email" aria-live="polite"></span>
+                </label>
             </div>
             <div class="input-box">
                 <label>Country</label>
-                <input type="text">
+                <input id="country" type="text">
             </div>
             <div class="input-box">
                 <label>Zip Code</label>
-                <input type="number">
+                <input id="zip" type="number">
             </div>
             <div class="input-box">
                 <label>Password</label>
-                <input type="password">
+                <input id="password" type="password">
             </div>
             <div class="input-box">
                 <label>Confirm Password</label>
-                <input type="password">
+                <input id="password-confirm" type="password">
             </div>
         <button type="button">Send Form</button>
         </div>

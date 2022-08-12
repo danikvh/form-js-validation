@@ -3,18 +3,27 @@ button {
     height: 30px;    
 }
 
+label {
+    display: flex;
+    flex-direction: column;
+}
+
 input {
-    height: 20px;
-    border: 1px solid rgb(156, 156, 156);
-    border-radius: 4px;
+    height: 25px;
+}
+
+input:focus {
+    outline: none;
 }
 
 input:valid {
-
+    border: 1px solid rgb(156, 156, 156);
+    background-color: rgb(255, 255, 255);
 }
 
 input:invalid {
-    
+    background-color: rgb(255, 197, 197);
+    border: 1px solid rgb(204, 122, 122);
 }
 
 .input-container {
@@ -32,4 +41,20 @@ input:invalid {
     display: flex;
     flex-direction: column;
     gap: 3px;
+}
+
+.error {
+    width  : 100%;
+    padding: 0;
+  
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+  
+    box-sizing: border-box;
+}
+
+.error.active {
+    padding: 0.3em;
 }
