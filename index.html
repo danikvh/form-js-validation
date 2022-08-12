@@ -15,7 +15,7 @@
             <div class="input-box">
                 <label for="email">
                     <span>Email</span>
-                    <input id="email" type="email" name="mail" minlength="8">
+                    <input id="email" type="email" name="email" minlength="8">
                     <span class="error-email" id="error-email" aria-live="polite"></span>
                 </label>
             </div>
@@ -24,8 +24,11 @@
                 <input id="country" type="text">
             </div>
             <div class="input-box">
-                <label>Zip Code</label>
-                <input id="zip" type="number">
+                <label for="zip">
+                    <span>Zip Code</span>
+                    <input id="zip" type="number" name="zip" min="10000" max="99999">
+                    <span class="error-zip" id="error-zip" aria-live="polite"></span>
+                </label>
             </div>
             <div class="input-box">
                 <label>Password</label>
@@ -35,7 +38,7 @@
                 <label>Confirm Password</label>
                 <input id="password-confirm" type="password">
             </div>
-        <button type="button">Send Form</button>
+        <button type="submit">Send Form</button>
         </div>
     </form>
 </body>

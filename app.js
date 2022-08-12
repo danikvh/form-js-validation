@@ -5,6 +5,7 @@ const zip = document.getElementById("zip")
 const pass = document.getElementById("password")
 const passConf = document.getElementById("password-confirm")
 let emailError = document.getElementById("error-email")
+let zipError = document.getElementById("error-zip")
 
 
 //EVENT LISTENERS
@@ -18,9 +19,19 @@ email.addEventListener("input", (event) => {
     }
 })
 
+zip.addEventListener("input", (event) => {
+    if (zip.validity.valid) {
+        zipError.textContent = ""
+        zipError.className = "error"
+    } else {
+        showZipError()
+    }
+})
+
 form.addEventListener("submit", (event) => {
-    if (!email.validity.valid) {
+    if (!email.validity.valid || !zip.validity.valid) {
         showEmailError()
+        showZipError()
         event.preventDefault()
     }
 })
@@ -38,4 +49,14 @@ function showEmailError() {
             you entered ${email.value.length}`
     }
     emailError.className = "error active"
+}
+
+function showZipError() {
+    console.log(zip.validity)
+    if (zip.validity.badInput) {
+        zipError.textContent = "Entered value needs to be a number."
+    } else if (zip.validity.rangeOverflow || zip.validity.rangeUnderflow) {
+        zipError.textContent = `Zip code should be 5 numbers; you entered ${zip.value.length}`
+    }
+    zipError.className = "error active"
 }
