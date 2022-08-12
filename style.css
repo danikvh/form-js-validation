@@ -1,3 +1,14 @@
+button {
+    width: 100px;
+    height: 30px;    
+}
+
+input {
+    height: 20px;
+    border: 1px solid rgb(156, 156, 156);
+    border-radius: 4px;
+}
+
 input:valid {
 
 }
@@ -7,5 +18,18 @@ input:invalid {
 }
 
 .input-container {
-    
+    background-color: rgb(191, 224, 253);
+    width: fit-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 4px;
+}
+
+.input-box {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
