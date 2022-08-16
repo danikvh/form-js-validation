@@ -11,7 +11,7 @@ let zipError = document.getElementById("error-zip")
 //EVENT LISTENERS
 
 email.addEventListener("input", (event) => {
-    if (email.validity.valid) {
+    if (email.checkValidity()) {
         emailError.textContent = ""
         emailError.className = "error"
     } else {
