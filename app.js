@@ -70,9 +70,9 @@ function showEmailError() {
 }
 
 function showZipError() {
-    if (zip.validity.badInput) {
+    if (zip.validity.patternMismatch) {
         zipError.textContent = "Entered value needs to be a number."
-    } else if (zip.validity.rangeOverflow || zip.validity.rangeUnderflow) {
+    } else if (zip.validity.tooLong || zip.validity.tooShort) {
         zipError.textContent = `Zip code should be 5 numbers; you entered ${zip.value.length}`
     }
     zipError.className = "error active"

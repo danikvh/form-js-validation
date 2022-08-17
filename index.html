@@ -27,7 +27,7 @@
                 <div class="input-box">
                     <label for="zip">
                         <span>Zip Code</span>
-                        <input id="zip" type="number" name="zip" min="10000" max="99999">
+                        <input id="zip" type="text" pattern="\d*" name="zip" minlength="5" maxlength="5">
                         <span class="error-zip" id="error-zip" aria-live="polite"></span>
                     </label>
                 </div>
