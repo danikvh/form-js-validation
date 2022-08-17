@@ -37,7 +37,7 @@ input:invalid {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 345px;
+    padding-bottom: 20px;
 }
 
 .input-box {
@@ -64,5 +64,4 @@ input:invalid {
 }
 
 .form-button {
-    margin-top: 20px;
 }

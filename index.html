@@ -32,8 +32,11 @@
                     </label>
                 </div>
                 <div class="input-box">
-                    <label>Password</label>
-                    <input id="password" type="password">
+                    <label for="password">
+                        <span>Password</span>
+                        <input id="password" type="password" name="password" minlength="12">
+                        <span class="error-password" id="error-password" aria-live="polite"></span>
+                    </label>
                 </div>
                 <div class="input-box">
                     <label for="password-confirm">
