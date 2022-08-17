@@ -6,6 +6,7 @@ const pass = document.getElementById("password")
 const passConf = document.getElementById("password-confirm")
 let emailError = document.getElementById("error-email")
 let zipError = document.getElementById("error-zip")
+let countryError = document.getElementById("error-country")
 let passError = document.getElementById("error-password")
 let passConfError = document.getElementById("error-password-confirm")
 
@@ -32,6 +33,16 @@ zip.addEventListener("input", (event) => {
     }
 })
 
+country.addEventListener("input", (event) => {
+    if (country.validity.valid) {
+        countryError.textContent = ""
+        countryError.className = "error"
+        country.className = ""
+    } else {
+        showCountryError()
+    }
+})
+
 pass.addEventListener("input", (event) => {
     showPassError()
 })
@@ -43,6 +54,9 @@ passConf.addEventListener("input", (event) => {
 form.addEventListener("submit", (event) => {
     if (!email.validity.valid || email.value === "") {
         showEmailError()
+        event.preventDefault()
+    } if (!country.validity.valid || country.value === "") {
+        showCountryError()
         event.preventDefault()
     } if (!zip.validity.valid || zip.value === "") {
         showZipError()
@@ -72,6 +86,14 @@ function showEmailError() {
     }
     emailError.className = "error active"
     email.className = "wrong"
+}
+
+function showCountryError() {
+    if (country.value === "") {
+        countryError.textContent = "You need to enter a country."
+    }
+    countryError.className = "error active"
+    country.className = "wrong"
 }
 
 function showZipError() {
