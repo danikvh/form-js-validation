@@ -90,16 +90,20 @@ function showPassError() {
     if (pass.validity.tooShort) {
         passError.textContent = `Password should be at least ${pass.minLength} characters;
             you entered ${pass.value.length}`
-        passError.className = "error active"
+        passError.className = "error active"  
+        pass.className = "wrong"
+        passConf.className = "wrong"
     } else if (pass.value === "") {
         passError.textContent = "Introduce a password" 
         passError.className = "error active"   
         pass.className = "wrong"
+        passConf.className = "wrong"
         passError.className = "error active"
     } else {
         passError.textContent = ""
         passError.className = "error"
         pass.className = ""
+        passConf.className = ""
     }
 }
 
