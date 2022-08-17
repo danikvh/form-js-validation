@@ -16,6 +16,7 @@ email.addEventListener("input", (event) => {
     if (email.checkValidity()) {
         emailError.textContent = ""
         emailError.className = "error"
+        email.className = ""
     } else {
         showEmailError()
     }
@@ -25,13 +26,14 @@ zip.addEventListener("input", (event) => {
     if (zip.validity.valid) {
         zipError.textContent = ""
         zipError.className = "error"
+        zip.className = ""
     } else {
         showZipError()
     }
 })
 
 pass.addEventListener("input", (event) => {
-        showPassError()
+    showPassError()
 })
 
 passConf.addEventListener("input", (event) => {
@@ -45,13 +47,13 @@ form.addEventListener("submit", (event) => {
     } if (!zip.validity.valid || zip.value === "") {
         showZipError()
         event.preventDefault()
-    } if (pass.value !== passConf.value) {
-        showPassConfirmError()
-        event.preventDefault()
     } if (pass.value === "") {
         showPassError()
         event.preventDefault()
-    }
+    } if (pass.value !== passConf.value) {
+        showPassConfirmError()
+        event.preventDefault()
+    } 
 })
 
 
@@ -69,6 +71,7 @@ function showEmailError() {
         emailError.textContent = "Enter an e-mail address."
     }
     emailError.className = "error active"
+    email.className = "wrong"
 }
 
 function showZipError() {
@@ -80,6 +83,7 @@ function showZipError() {
         zipError.textContent = "Enter a zip code."
     }
     zipError.className = "error active"
+    zip.className = "wrong"
 }
 
 function showPassError() {
@@ -90,12 +94,12 @@ function showPassError() {
     } else if (pass.value === "") {
         passError.textContent = "Introduce a password" 
         passError.className = "error active"   
-        pass.setCustomValidity("Introduce a password")
+        pass.className = "wrong"
         passError.className = "error active"
     } else {
         passError.textContent = ""
         passError.className = "error"
-        pass.setCustomValidity("")
+        pass.className = ""
     }
 }
 
@@ -103,10 +107,10 @@ function showPassConfirmError() {
     if (pass.value !== passConf.value) {
         passConfError.textContent = "Passwords don't match" 
         passConfError.className = "error active"   
-        passConf.setCustomValidity("Passwords don't match")
+        passConf.className = "wrong"
     }  else {
         passConfError.textContent = ""
         passConfError.className = "error"
-        passConf.setCustomValidity("")
+        passConf.className = ""
     }
 }
