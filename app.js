@@ -6,6 +6,7 @@ const pass = document.getElementById("password")
 const passConf = document.getElementById("password-confirm")
 let emailError = document.getElementById("error-email")
 let zipError = document.getElementById("error-zip")
+let passConfError = document.getElementById("error-password-confirm")
 
 
 //EVENT LISTENERS
@@ -28,10 +29,20 @@ zip.addEventListener("input", (event) => {
     }
 })
 
+passConf.addEventListener("focusout", (event) => {
+    showPassConfirmError()
+})
+
 form.addEventListener("submit", (event) => {
-    if (!email.validity.valid || !zip.validity.valid) {
+    console.log(pass.value !== passConf.value)
+    if (!email.validity.valid) {
         showEmailError()
+        event.preventDefault()
+    } if (!zip.validity.valid) {
         showZipError()
+        event.preventDefault()
+    } if (pass.value !== passConf.value) {
+        showPassConfirmError()
         event.preventDefault()
     }
 })
@@ -59,4 +70,17 @@ function showZipError() {
         zipError.textContent = `Zip code should be 5 numbers; you entered ${zip.value.length}`
     }
     zipError.className = "error active"
+}
+
+function showPassConfirmError() {
+    if (pass.value !== passConf.value) {
+        passConfError.className = "error active"   
+        passConfError.textContent = "Passwords don't match" 
+        passConf.setCustomValidity("Passwords don't match")
+    }
+    else {
+        passConfError.textContent = ""
+        passConfError.className = "error"
+        passConf.setCustomValidity("")
+    }
 }

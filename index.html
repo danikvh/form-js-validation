@@ -11,34 +11,39 @@
 <body>
     <h1>Form</h1>
     <form>
-        <div class="input-container">
-            <div class="input-box">
-                <label for="email">
-                    <span>Email</span>
-                    <input id="email" type="email" name="email" minlength="8">
-                    <span class="error-email" id="error-email" aria-live="polite"></span>
-                </label>
+        <div class="form-container">
+            <div class="input-container">
+                <div class="input-box">
+                    <label for="email">
+                        <span>Email</span>
+                        <input id="email" type="email" name="email" minlength="8">
+                        <span class="error-email" id="error-email" aria-live="polite"></span>
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label>Country</label>
+                    <input id="country" type="text">
+                </div>
+                <div class="input-box">
+                    <label for="zip">
+                        <span>Zip Code</span>
+                        <input id="zip" type="number" name="zip" min="10000" max="99999">
+                        <span class="error-zip" id="error-zip" aria-live="polite"></span>
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label>Password</label>
+                    <input id="password" type="password">
+                </div>
+                <div class="input-box">
+                    <label for="password-confirm">
+                        <span>Confirm Password</span>
+                        <input id="password-confirm" type="password" name="password-confirm">
+                        <span class="error-password-confirm" id="error-password-confirm" aria-live="polite"></span>
+                    </label>
+                </div>
             </div>
-            <div class="input-box">
-                <label>Country</label>
-                <input id="country" type="text">
-            </div>
-            <div class="input-box">
-                <label for="zip">
-                    <span>Zip Code</span>
-                    <input id="zip" type="number" name="zip" min="10000" max="99999">
-                    <span class="error-zip" id="error-zip" aria-live="polite"></span>
-                </label>
-            </div>
-            <div class="input-box">
-                <label>Password</label>
-                <input id="password" type="password">
-            </div>
-            <div class="input-box">
-                <label>Confirm Password</label>
-                <input id="password-confirm" type="password">
-            </div>
-        <button type="submit">Send Form</button>
+        <button type="submit" class="form-button">Send Form</button>
         </div>
     </form>
 </body>

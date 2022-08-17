@@ -26,14 +26,18 @@ input:invalid {
     border: 1px solid rgb(204, 122, 122);
 }
 
-.input-container {
+.form-container {
     background-color: rgb(191, 224, 253);
-    width: fit-content;
     padding: 20px;
+    width: fit-content;
+    border-radius: 4px;
+}
+
+.input-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-radius: 4px;
+    gap: 20px;
+    height: 345px;
 }
 
 .input-box {
@@ -57,4 +61,8 @@ input:invalid {
 
 .error.active {
     padding: 0.3em;
+}
+
+.form-button {
+    margin-top: 20px;
 }
