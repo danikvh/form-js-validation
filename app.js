@@ -39,13 +39,13 @@ passConf.addEventListener("input", (event) => {
 })
 
 form.addEventListener("submit", (event) => {
-    if (!email.validity.valid) {
+    if (!email.validity.valid || email.value === "") {
         showEmailError()
         event.preventDefault()
-    } if (!zip.validity.valid) {
+    } if (!zip.validity.valid || zip.value === "") {
         showZipError()
         event.preventDefault()
-    } if (pass.value !== passConf.value || pass.value === "") {
+    } if (pass.value !== passConf.value) {
         showPassConfirmError()
         event.preventDefault()
     } if (pass.value === "") {
@@ -65,6 +65,8 @@ function showEmailError() {
     } else if (email.validity.tooShort) {
         emailError.textContent = `Email should be at least ${email.minLength} characters;
             you entered ${email.value.length}`
+    } else if (email.value === "") {
+        emailError.textContent = "Enter an e-mail address."
     }
     emailError.className = "error active"
 }
@@ -74,6 +76,8 @@ function showZipError() {
         zipError.textContent = "Entered value needs to be a number."
     } else if (zip.validity.tooLong || zip.validity.tooShort) {
         zipError.textContent = `Zip code should be 5 numbers; you entered ${zip.value.length}`
+    } else if (zip.value === "") {
+        zipError.textContent = "Enter a zip code."
     }
     zipError.className = "error active"
 }
